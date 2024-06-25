@@ -20,7 +20,7 @@ def main():
         # Keep the LED on for 10 seconds and print every second
         for i in range(MAX_TIME):
             time.sleep(1)
-            print(f"LED has been on for {i + 1} seconds")
+            print(f"LED has been ON for {i + 1} seconds")
 
         # Turn off the LED
         GPIO.output(18, GPIO.LOW)
