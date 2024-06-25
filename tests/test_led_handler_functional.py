@@ -1,6 +1,5 @@
 import time
 import pytest
-
 from libs import utilities
 
 # Ensure this test file is only run on a Raspberry Pi
@@ -11,16 +10,23 @@ if not utilities.is_raspberry():
     )
 
 import RPi.GPIO as GPIO
-
 from libs.raspberry.led_handler import LEDHandler
 
 
-def test_led_handler_on_off():
+@pytest.fixture(scope="module")
+def led_handler():
+    """
+    Fixture to initialize and clean up the LEDHandler instance.
+    """
+    handler = LEDHandler(18)
+    yield handler
+    GPIO.cleanup()
+
+
+def test_led_handler_on_off(led_handler):
     """
     Test the LEDHandler's on and off methods with real GPIO.
     """
-    led_handler = LEDHandler(18)
-
     # Turn the LED on
     led_handler.on()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is on
@@ -34,12 +40,10 @@ def test_led_handler_on_off():
     print("Test: LED off method executed correctly.")
 
 
-def test_led_on_off_sequence():
+def test_led_on_off_sequence(led_handler):
     """
     Test the sequence of turning the LED on and off with real GPIO.
     """
-    led_handler = LEDHandler(18)
-
     # Turn the LED on and off in sequence
     led_handler.on()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is on
