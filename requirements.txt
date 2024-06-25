@@ -1,1 +1,3 @@
-RPi.GPIO
+RPi.GPIO; platform_system == "Linux" and "arm" in platform_machine
+pre-commit
+pytest
