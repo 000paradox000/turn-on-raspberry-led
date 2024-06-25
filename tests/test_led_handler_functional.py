@@ -9,19 +9,12 @@ if platform.system() != "Linux" or "arm" not in platform.machine():
         allow_module_level=True,
     )
 
+import RPi.GPIO as GPIO
+
 from libs.raspberry.led_handler import LEDHandler
 
 
-@pytest.fixture
-def setup_gpio():
-    import RPi.GPIO as GPIO
-
-    GPIO.setmode(GPIO.BCM)
-    yield GPIO
-    GPIO.cleanup()
-
-
-def test_led_handler_on_off(setup_gpio):
+def test_led_handler_on_off():
     """
     Test the LEDHandler's on and off methods with real GPIO.
     """
@@ -30,17 +23,17 @@ def test_led_handler_on_off(setup_gpio):
     # Turn the LED on
     led_handler.on()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is on
-    assert setup_gpio.input(18) == setup_gpio.HIGH
+    assert GPIO.input(18) == GPIO.HIGH
     print("Test: LED on method executed correctly.")
 
     # Turn the LED off
     led_handler.off()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is off
-    assert setup_gpio.input(18) == setup_gpio.LOW
+    assert GPIO.input(18) == GPIO.LOW
     print("Test: LED off method executed correctly.")
 
 
-def test_led_on_off_sequence(setup_gpio):
+def test_led_on_off_sequence():
     """
     Test the sequence of turning the LED on and off with real GPIO.
     """
@@ -49,9 +42,9 @@ def test_led_on_off_sequence(setup_gpio):
     # Turn the LED on and off in sequence
     led_handler.on()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is on
-    assert setup_gpio.input(18) == setup_gpio.HIGH
+    assert GPIO.input(18) == GPIO.HIGH
 
     led_handler.off()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is off
-    assert setup_gpio.input(18) == setup_gpio.LOW
+    assert GPIO.input(18) == GPIO.LOW
     print("Test: LED on and off sequence executed correctly.")
