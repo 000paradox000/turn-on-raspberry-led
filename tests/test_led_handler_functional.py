@@ -11,6 +11,7 @@ if not utilities.is_raspberry():
 
 import RPi.GPIO as GPIO
 from libs.raspberry.led_handler import LEDHandler
+from libs import settings
 
 
 @pytest.fixture(scope="module")
@@ -18,7 +19,7 @@ def led_handler():
     """
     Fixture to initialize and clean up the LEDHandler instance.
     """
-    handler = LEDHandler(18)
+    handler = LEDHandler(settings.PIN)
     yield handler
     GPIO.cleanup()
 
@@ -30,13 +31,13 @@ def test_led_handler_on_off(led_handler):
     # Turn the LED on
     led_handler.on()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is on
-    assert GPIO.input(18) == GPIO.HIGH
+    assert GPIO.input(settings.PIN) == GPIO.HIGH
     print("Test: LED on method executed correctly.")
 
     # Turn the LED off
     led_handler.off()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is off
-    assert GPIO.input(18) == GPIO.LOW
+    assert GPIO.input(settings.PIN) == GPIO.LOW
     print("Test: LED off method executed correctly.")
 
 
@@ -47,9 +48,9 @@ def test_led_on_off_sequence(led_handler):
     # Turn the LED on and off in sequence
     led_handler.on()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is on
-    assert GPIO.input(18) == GPIO.HIGH
+    assert GPIO.input(settings.PIN) == GPIO.HIGH
 
     led_handler.off()
     time.sleep(1)  # Wait for 1 second to visually confirm the LED is off
-    assert GPIO.input(18) == GPIO.LOW
+    assert GPIO.input(settings.PIN) == GPIO.LOW
     print("Test: LED on and off sequence executed correctly.")
