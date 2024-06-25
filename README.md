@@ -1,2 +1,1 @@
-# turn-on-raspberry-led
-Turn on a Raspberry PI led
+# Turn on a Raspberry PI led
