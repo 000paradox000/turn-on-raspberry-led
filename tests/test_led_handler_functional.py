@@ -1,9 +1,10 @@
 import time
 import pytest
-import platform
+
+from libs import utilities
 
 # Ensure this test file is only run on a Raspberry Pi
-if platform.system() != "Linux" or "arm" not in platform.machine():
+if not utilities.is_raspberry():
     pytest.skip(
         "Skipping GPIO tests on non-Raspberry Pi platforms",
         allow_module_level=True,
