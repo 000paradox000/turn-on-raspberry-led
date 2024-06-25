@@ -2,6 +2,8 @@ import time
 
 import RPi.GPIO as GPIO
 
+MAX_TIME = 10
+
 
 def main():
     # Set up GPIO using BCM numbering
@@ -15,8 +17,10 @@ def main():
         GPIO.output(18, GPIO.HIGH)
         print("LED is ON")
 
-        # Keep the LED on for 10 seconds
-        time.sleep(10)
+        # Keep the LED on for 10 seconds and print every second
+        for i in range(MAX_TIME):
+            time.sleep(1)
+            print(f"LED has been on for {i + 1} seconds")
 
         # Turn off the LED
         GPIO.output(18, GPIO.LOW)
