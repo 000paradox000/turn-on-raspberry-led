@@ -7,7 +7,7 @@ from libs.raspberry.led_handler import LEDHandler
 app = FastAPI()
 
 
-@app.post("/state")
+@app.post("/state/")
 def change_state(
     request: Request, input_message: InputMessage
 ) -> OutputMessage:
