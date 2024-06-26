@@ -1,15 +1,11 @@
 from typing import Literal, Optional
 
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-
-# import RPi.GPIO as GPIO
 import uvicorn
 
-# from libs.models import InputMessage, OutputMessage
-# from libs.raspberry.led_handler import LEDHandler
 from libs import settings
 
 PROJECT_DIR = settings.BASE_DIR / "libs" / "http_server"
@@ -25,6 +21,11 @@ app.mount(
     StaticFiles(directory=STATIC_DIR.as_posix()),
     name="static",
 )
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    return RedirectResponse(url="/static/favicon/favicon.ico")
 
 
 @app.get("/{page}", response_class=HTMLResponse)
