@@ -37,7 +37,7 @@ body {
 }
 
 .container {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 @media (max-width: 600px) {
