@@ -36,10 +36,6 @@ body {
     background-color: #555;
 }
 
-.container {
-    color: #ffffff !important;
-}
-
 @media (max-width: 600px) {
     .navbar {
         flex-direction: column;
@@ -47,5 +43,42 @@ body {
 
     .navbar li {
         text-align: center;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px; /* Adjust max-width as per your design */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1320px;
     }
 }
