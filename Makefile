@@ -1,15 +1,23 @@
-lint:
+# =============================================================================
+# Local
+
+lint-local:
 	pre-commit run --all-files
 	pre-commit run --all-files
 
-lint-update:
+lint-update-local:
 	pre-commit autoupdate
 
-install-requirements:
-	pip install -r requirements.txt
+install-requirements-local:
+	pip install --upgrade pip
+	pip install -r requirements/local.txt
 
-run:
-	python main.py
-
-test:
+test-local:
 	python -m pytest -ra -vv
+
+coverage-local:
+	coverage run -m pytest -ra -vv
+	report -m
+
+run-local:
+	python main.py

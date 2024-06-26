@@ -1,7 +1,0 @@
-RPi.GPIO; platform_system == "Linux" and "aarch64" in platform_machine
-pre-commit
-pytest
-fastapi
-uvicorn[standard]
-requests
-jinja2

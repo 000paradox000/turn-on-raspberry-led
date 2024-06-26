@@ -1,0 +1,6 @@
+-r base.txt
+
+pre-commit
+pytest
+ipython
+coverage
