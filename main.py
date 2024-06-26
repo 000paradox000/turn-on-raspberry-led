@@ -6,6 +6,7 @@ import RPi.GPIO as GPIO
 
 from libs.models import InputMessage, OutputMessage
 from libs.raspberry.led_handler import LEDHandler
+from libs import settings
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -43,6 +44,11 @@ if __name__ == "__main__":
     import uvicorn
 
     try:
-        uvicorn.run(app="main:app", host="0.0.0.0", port=9600, reload=True)
+        uvicorn.run(
+            app="main:app",
+            host="0.0.0.0",
+            port=settings.FASTAPI_PORT,
+            reload=True,
+        )
     except KeyboardInterrupt:
         GPIO.cleanup()
