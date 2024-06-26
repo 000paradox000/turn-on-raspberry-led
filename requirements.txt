@@ -3,3 +3,5 @@ pre-commit
 pytest
 fastapi
 uvicorn[standard]
+requests
+jinja2
