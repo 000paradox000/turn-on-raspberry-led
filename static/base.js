@@ -7,7 +7,7 @@ document.getElementById('toggleButton').addEventListener('click', function(event
     event.target.innerText = newState ? 'ON' : 'OFF';
     event.target.className = newState ? 'on' : 'off';
 
-    fetch('/state', {
+    fetch('/state/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
