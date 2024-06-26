@@ -21,7 +21,7 @@ class LEDHandler(RaspberryBaseHandler):
         """
         super().__init__()
 
-        self._pin = pin | settings.PIN
+        self._pin = pin or settings.PIN
         # Set up the specified GPIO pin as an output
         GPIO.setup(self._pin, GPIO.OUT)
 
