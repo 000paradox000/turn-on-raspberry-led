@@ -21,3 +21,15 @@ coverage-local:
 
 run-local:
 	python main.py
+
+# =============================================================================
+# PI
+
+install-requirements-pi:
+	pip install --upgrade pip
+	pip install -r requirements/pi.txt
+
+run-pi:
+	python main.py
+
+
