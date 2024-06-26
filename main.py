@@ -18,7 +18,6 @@ def change_state(
         handler.on()
     else:
         handler.off()
-    GPIO.cleanup()
 
     output_message = OutputMessage(state=state)
 
@@ -28,4 +27,7 @@ def change_state(
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app="main:app", host="0.0.0.0", port=9600, reload=True)
+    try:
+        uvicorn.run(app="main:app", host="0.0.0.0", port=9600, reload=True)
+    except KeyboardInterrupt:
+        GPIO.cleanup()
