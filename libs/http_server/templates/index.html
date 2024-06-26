@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    Page: {{ page }}
+    {% if page == "button" %}
+        {% include "button.html" %}
+    {% endif %}
 {% endblock content %}
 
 {% block js %}

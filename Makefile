@@ -31,5 +31,3 @@ install-requirements-pi:
 
 run-pi:
 	python main.py
-
-

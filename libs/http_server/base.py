@@ -35,10 +35,15 @@ async def index(
     page: Optional[Literal["button", "text", "sign"]] = None,
 ):
     page = page or "button"
-
+    state = False
+    button_css_class = "huge-button-off" if state else "huge-button-on"
+    button_label = "OFF" if state else "ON"
     context = {
         "request": request,
         "page": page,
+        "state": state,
+        "button_css_class": button_css_class,
+        "button_label": button_label,
     }
     return templates.TemplateResponse("index.html", context)
 
