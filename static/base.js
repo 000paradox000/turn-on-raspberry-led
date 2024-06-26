@@ -4,8 +4,8 @@ document.getElementById('toggleButton').addEventListener('click', function(event
     const currentState = stateInput.value === 'true';
     const newState = !currentState;
     stateInput.value = newState;
-    event.target.innerText = newState ? 'ON' : 'OFF';
-    event.target.className = newState ? 'on' : 'off';
+    event.target.innerText = newState ? 'OFF' : 'ON';
+    event.target.className = newState ? 'off' : 'on';
 
     fetch('/state/', {
         method: 'POST',

@@ -10,8 +10,8 @@
     <div class="container">
         <form method="post" action="/state">
             <input type="hidden" name="state" id="state" value="{{ state | default(false) }}">
-            <button type="submit" id="toggleButton" class="{{ 'on' if state else 'off' }}">
-                {{ 'ON' if state else 'OFF' }}
+            <button type="submit" id="toggleButton" class="{{ 'off' if state else 'on' }}">
+                {{ 'OFF' if state else 'ON' }}
             </button>
         </form>
     </div>
