@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn Led ON/OFF</title>
+    <link rel="stylesheet" href="/static/base.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="#" class="brand">My Website</a>
+            <ul class="menu">
+                <li><a href="/">Button</a></li>
+                <li><a href="/text">Text</a></li>
+            </ul>
+        </div>
+        <form method="post" action="/state">
+            <input type="hidden" name="state" id="state" value="{{ state | default(false) }}">
+
+            {% block content %}{% endblock content %}
+        </form>
+    </div>
+    {% block js %}{% endblock js %}
+</body>
+</html>

@@ -12,7 +12,9 @@ document.getElementById('toggleButton').addEventListener('click', function(event
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ state: newState })
+        body: JSON.stringify({
+            state: newState
+        })
     })
     .then(response => response.json())
     .then(data => {

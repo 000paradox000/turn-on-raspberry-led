@@ -23,6 +23,18 @@ async def index(request: Request):
     return templates.TemplateResponse("index.html", context)
 
 
+@app.get("/text/", response_class=HTMLResponse)
+async def index_text(request: Request):
+    history = []
+
+    context = {
+        "request": request,
+        "state": False,
+        "history": history,
+    }
+    return templates.TemplateResponse("index_text.html", context)
+
+
 @app.post("/state/")
 def change_state(
     request: Request, input_message: InputMessage

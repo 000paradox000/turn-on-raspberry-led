@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turn Led ON/OFF</title>
-    <link rel="stylesheet" href="/static/base.css">
-</head>
-<body>
-    <div class="container">
-        <form method="post" action="/state">
-            <input type="hidden" name="state" id="state" value="{{ state | default(false) }}">
-            <button type="submit" id="toggleButton" class="{{ 'off' if state else 'on' }}">
-                {{ 'OFF' if state else 'ON' }}
-            </button>
+{% extends base.html %}
 
-            <br>
-            <br>
+{% block content %}
+<button type="submit" id="toggleButton" class="{{ 'off' if state else 'on' }}">
+    {{ 'OFF' if state else 'ON' }}
+</button>
+{% endblock content %}
 
-            <input type="text" id="text_input" name="text_input">
-        </form>
-    </div>
-    <script src="/static/base.js"></script>
-</body>
-</html>
+{% block js %}{
+<script src="/static/index.js"></script>
+% endblock js %}
