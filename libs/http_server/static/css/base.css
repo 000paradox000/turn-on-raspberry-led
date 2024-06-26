@@ -36,6 +36,10 @@ body {
     background-color: #555;
 }
 
+.container {
+    color: #ffffff;
+}
+
 @media (max-width: 600px) {
     .navbar {
         flex-direction: column;
