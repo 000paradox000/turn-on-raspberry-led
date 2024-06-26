@@ -49,15 +49,19 @@ body {
 .container {
     width: 100%;
     max-width: 1140px; /* Adjust max-width as per your design */
+    margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
     box-sizing: border-box;
+}
+
+.content {
+    margin-top: 20px;
     color: #ffffff;
 }
 
-/* Responsive adjustments */
 @media (max-width: 767px) {
     .container {
         padding-left: 10px;
