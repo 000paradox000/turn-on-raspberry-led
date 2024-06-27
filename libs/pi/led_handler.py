@@ -16,13 +16,9 @@ class LEDHandler(RaspberryBaseHandler):
         """Initialize the LEDHandler with a specific GPIO pin."""
         super().__init__()
 
-        if self._initialized:
-            return
-
         self._pin: int = settings.LED_PIN
         self._modified: bool = False
         GPIO.setup(self._pin, GPIO.OUT)
-        self._initialized = True
 
     def on(self) -> None:
         """Turn on the LED."""
