@@ -7,8 +7,14 @@ from fastapi.staticfiles import StaticFiles
 import uvicorn
 
 from libs import settings
-from .models import InputMessage, OutputMessage
+from .models import (
+    InputMessage,
+    OutputMessage,
+    InputTextMessage,
+    OutputTextMessage,
+)
 from libs.pi import LEDHandler
+from libs.llm.openai import OpenAILLMHandler
 
 PROJECT_DIR = settings.BASE_DIR / "libs" / "http_server"
 TEMPLATES_DIR = PROJECT_DIR / "templates"
@@ -25,6 +31,7 @@ app.mount(
 )
 
 led_handler = LEDHandler()
+openai_handler = OpenAILLMHandler()
 
 
 @app.on_event("shutdown")
@@ -87,6 +94,21 @@ def get_state(request: Request) -> OutputMessage:
     return OutputMessage(
         state=led_handler.state,
         modified=False,
+    )
+
+
+@app.post("/text-input/")
+def change_state_using_text(
+    request: Request,
+    input_message: InputTextMessage,
+) -> OutputTextMessage:
+    value = input_message.value
+    led_handler.state = openai_handler.get_state(value)
+
+    return OutputTextMessage(
+        state=led_handler.state,
+        modified=led_handler.modified,
+        value=value,
     )
 
 
