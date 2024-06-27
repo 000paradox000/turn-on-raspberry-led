@@ -109,6 +109,11 @@ body {
 /**
  * Huge input
  */
+.huge-input-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .huge-input {
     font-size: 24px; /* Increase the font size */
     padding: 10px;   /* Add padding for a larger field */
