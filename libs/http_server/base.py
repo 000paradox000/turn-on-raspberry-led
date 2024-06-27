@@ -51,7 +51,7 @@ async def index(
     context = {
         "request": request,
         "page": page,
-        "state": state,
+        "state": "true" if state else "false",
         "button_css_class": button_css_class,
         "button_label": button_label,
         "action": action,

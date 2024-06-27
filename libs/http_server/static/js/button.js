@@ -10,7 +10,7 @@ function get_current_state() {
     const state_input = get_state_input();
     const value = state_input.value;
 
-    return value === "True";
+    return value === "true";
 }
 
 function get_button() {
