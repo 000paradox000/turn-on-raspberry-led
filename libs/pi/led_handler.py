@@ -23,12 +23,10 @@ class LEDHandler(RaspberryBaseHandler):
     def on(self) -> None:
         """Turn on the LED."""
         GPIO.output(self._pin, GPIO.HIGH)
-        print("LED is ON")
 
     def off(self) -> None:
         """Turn off the LED."""
         GPIO.output(self._pin, GPIO.LOW)
-        print("LED is OFF")
 
     def is_on(self) -> bool:
         return GPIO.input(self._pin) == GPIO.HIGH
