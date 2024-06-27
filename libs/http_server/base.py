@@ -72,6 +72,14 @@ def change_state(
     )
 
 
+@app.get("/state/")
+def get_state(request: Request) -> OutputMessage:
+    return OutputMessage(
+        state=led_handler.state,
+        modified=False,
+    )
+
+
 def start():
     uvicorn.run(
         app="libs.http_server.base:app",

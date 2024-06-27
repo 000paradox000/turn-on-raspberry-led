@@ -24,6 +24,7 @@ function change_label() {
 }
 
 function change_state(value) {
+    console.log(`Value: ${value}`)
     get_state_input().value = value;
     change_label();
 }
