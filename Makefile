@@ -30,4 +30,4 @@ test-pi:
 
 coverage-pi:
 	coverage run -m pytest -ra -vv
-	report -m
+	coverage report -m
