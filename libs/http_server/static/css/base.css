@@ -138,6 +138,10 @@ body {
     .container {
         max-width: 960px;
     }
+
+    .content {
+        margin-top: 20px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
