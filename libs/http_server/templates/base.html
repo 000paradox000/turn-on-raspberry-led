@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         {% include "navbar.html" %}
-        <form method="post" action="/">
+        <form method="post" action="/" id="led-form">
             <input type="hidden" name="state" id="state" value="{{ state }}">
             <div class="content">
                 {% block content %}{% endblock content %}

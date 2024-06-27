@@ -4,16 +4,16 @@
 
 ## Quickstart
 
-1. Create a virtualenv
-
-```
-```
-
-2. Install the requirements
-
-3. Run the server
-
-4. Test
-
-```
-```
+- Clone the repo in the raspberry
+- Create a virtualenv
+- Install the requirements
+- Create `.env` with custom values
+    ```
+    cp example.env .env
+    # open .env in your favourite editor
+    ```
+- Run the server
+    ```
+    python main.py
+    ```
+- Visit the server http://IP_ADDRESS_OF_PI:9700
