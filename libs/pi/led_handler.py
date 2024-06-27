@@ -4,7 +4,21 @@ from libs import settings
 from .base import RaspberryBaseHandler
 
 
-class LEDHandler(RaspberryBaseHandler):
+class SingletonMeta(type):
+    """
+    A singleton metaclass that creates a single instance of a class.
+    """
+
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            instance = super().__call__(*args, **kwargs)
+            cls._instances[cls] = instance
+        return cls._instances[cls]
+
+
+class LEDHandler(RaspberryBaseHandler, metaclass=SingletonMeta):
     """
     A class to handle LED operations using Raspberry Pi GPIO.
 

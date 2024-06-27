@@ -11,7 +11,7 @@ def led_handler():
     """
     handler = LEDHandler()
     yield handler
-    # handler.cleanup()
+    handler.cleanup()
 
 
 def test_led_handler_on_off(led_handler):
