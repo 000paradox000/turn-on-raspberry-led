@@ -17,20 +17,15 @@ class LEDHandler(RaspberryBaseHandler):
         super().__init__()
 
         self._pin = settings.LED_PIN
-        # Set up the specified GPIO pin as an output
         GPIO.setup(self._pin, GPIO.OUT)
 
     def _on(self) -> None:
-        """
-        Turn on the LED.
-        """
+        """Turn on the LED."""
         GPIO.output(self._pin, GPIO.HIGH)
         print("LED is ON")
 
     def _off(self) -> None:
-        """
-        Turn off the LED.
-        """
+        """Turn off the LED."""
         GPIO.output(self._pin, GPIO.LOW)
         print("LED is OFF")
 
