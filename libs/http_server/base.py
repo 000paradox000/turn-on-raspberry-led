@@ -59,7 +59,10 @@ def change_state(
 ) -> OutputMessage:
     led_handler.state = input_message.state
 
-    return OutputMessage(state=led_handler.state)
+    return OutputMessage(
+        state=led_handler.state,
+        modified=led_handler.modified,
+    )
 
 
 def start():

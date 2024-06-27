@@ -7,3 +7,4 @@ class InputMessage(BaseModel):
 
 class OutputMessage(BaseModel):
     state: bool
+    modified: bool
