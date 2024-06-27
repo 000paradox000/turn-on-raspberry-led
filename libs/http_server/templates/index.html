@@ -4,10 +4,16 @@
     {% if page == "button" %}
         {% include "button.html" %}
     {% endif %}
+    {% if page == "text" %}
+        {% include "text.html" %}
+    {% endif %}
 {% endblock content %}
 
 {% block js %}
     {% if page == "button" %}
         <script src="/static/js/button.js"></script>
+    {% endif %}
+    {% if page == "text" %}
+        <script src="/static/js/text.js"></script>
     {% endif %}
 {% endblock js %}
