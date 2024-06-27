@@ -1,27 +1,12 @@
-// function get_form() {
-//     return document.getElementById("led-form");
-// }
-//
-// function get_state_input() {
-//     return document.getElementById("state");
-// }
-//
-// function get_current_state() {
-//     const state_input = get_state_input();
-//     const value = state_input.value;
-//
-//     return value === "true";
-// }
-//
-// function get_button() {
-//     return document.getElementById("led-button");
-// }
-//
-// function change_label() {
-//     const current_state = get_current_state();
-//     get_button().innerText = current_state ? "OFF" : "ON";
-//     get_button().className = current_state ? "huge-button huge-button-off" : "huge-button huge-button-on";
-// }
+function get_text() {
+    return document.getElementById("text_input");
+}
+
+function change_label() {
+    const current_state = get_current_state();
+    get_button().innerText = current_state ? "OFF" : "ON";
+    get_button().className = current_state ? "huge-button huge-button-off" : "huge-button huge-button-on";
+}
 //
 // function change_state(value) {
 //     get_state_input().value = value;
