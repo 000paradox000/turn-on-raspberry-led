@@ -134,6 +134,14 @@ body {
     border-radius: 5px 0 0 5px; /* Rounded corners on the left side */
 }
 
+.text_state_label-on {
+    background-color: green;
+}
+
+.text_state_label-off {
+    background-color: red;
+}
+
 /**
  * Viewports
  */

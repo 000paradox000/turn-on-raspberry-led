@@ -52,7 +52,11 @@ async def index(
     state = led_handler.state
     button_css_class = "huge-button-off" if state else "huge-button-on"
     button_label = "OFF" if state else "ON"
+    text_state_label_css = (
+        "text_state_label-on" if state else "text_state_label-off"
+    )
     action = actions[page]
+
     context = {
         "request": request,
         "page": page,
@@ -60,6 +64,7 @@ async def index(
         "button_css_class": button_css_class,
         "button_label": button_label,
         "action": action,
+        "text_state_label_css": text_state_label_css,
     }
     return templates.TemplateResponse("index.html", context)
 
