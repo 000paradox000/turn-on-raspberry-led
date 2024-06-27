@@ -20,13 +20,12 @@ get_form().addEventListener("submit", function(event) {
     event.preventDefault();
 
     const change_state_url = "/text-input/";
-    const current_state = get_current_state();
-    const new_state = !current_state;
+    const value = get_text().value;
     const headers = {
         "Content-Type": "application/json"
     };
     const body = JSON.stringify({
-        state: new_state
+        value: value
     });
 
     fetch(change_state_url, {
