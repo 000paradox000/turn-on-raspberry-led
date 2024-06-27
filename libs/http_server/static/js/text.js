@@ -14,6 +14,7 @@ function change_label() {
 function change_state(value) {
     get_state_input().value = value;
     change_label();
+    get_text().value = "";
 }
 
 get_form().addEventListener("submit", function(event) {
