@@ -17,14 +17,15 @@ function get_button() {
     return document.getElementById("led-button");
 }
 
-function change_state(value) {
-    get_state_input().value = value;
-}
-
 function change_label() {
     const current_state = get_current_state();
     get_button().innerText = current_state ? "OFF" : "ON";
     get_button().className = current_state ? "off" : "on";
+}
+
+function change_state(value) {
+    get_state_input().value = value;
+    change_label();
 }
 
 get_button().addEventListener("click", function(event) {
