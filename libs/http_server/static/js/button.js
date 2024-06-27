@@ -20,7 +20,7 @@ function get_button() {
 function change_label() {
     const current_state = get_current_state();
     get_button().innerText = current_state ? "OFF" : "ON";
-    get_button().className = current_state ? "off" : "on";
+    get_button().className = current_state ? "huge-button-off" : "huge-button-on";
 }
 
 function change_state(value) {
