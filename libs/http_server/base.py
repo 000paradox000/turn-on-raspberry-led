@@ -7,6 +7,8 @@ from fastapi.staticfiles import StaticFiles
 import uvicorn
 
 from libs import settings
+from .models import InputMessage, OutputMessage
+from libs.pi import LEDHandler
 
 PROJECT_DIR = settings.BASE_DIR / "libs" / "http_server"
 TEMPLATES_DIR = PROJECT_DIR / "templates"
@@ -22,6 +24,8 @@ app.mount(
     name="static",
 )
 
+led_handler = LEDHandler()
+
 
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
@@ -35,7 +39,7 @@ async def index(
     page: Optional[Literal["button", "text", "sign"]] = None,
 ):
     page = page or "button"
-    state = False
+    state = led_handler.state
     button_css_class = "huge-button-off" if state else "huge-button-on"
     button_label = "OFF" if state else "ON"
     context = {
@@ -48,33 +52,14 @@ async def index(
     return templates.TemplateResponse("index.html", context)
 
 
-# @app.get("/text/", response_class=HTMLResponse)
-# async def index_text(request: Request):
-#     history = []
-#
-#     context = {
-#         "request": request,
-#         "state": False,
-#         "history": history,
-#     }
-#     return templates.TemplateResponse("index_text.html", context)
-#
-#
-# @app.post("/state/")
-# def change_state(
-#     request: Request, input_message: InputMessage
-# ) -> OutputMessage:
-#     state = input_message.state
-#
-#     handler = LEDHandler()
-#     if state:
-#         handler.on()
-#     else:
-#         handler.off()
-#
-#     output_message = OutputMessage(state=state)
-#
-#     return output_message
+@app.post("/state/")
+def change_state(
+    request: Request,
+    input_message: InputMessage,
+) -> OutputMessage:
+    led_handler.state = input_message.state
+
+    return OutputMessage(state=led_handler.state)
 
 
 def start():
