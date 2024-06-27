@@ -20,34 +20,34 @@ class LEDHandler(RaspberryBaseHandler):
         self._modified: bool = False
         GPIO.setup(self._pin, GPIO.OUT)
 
-    def _on(self) -> None:
+    def on(self) -> None:
         """Turn on the LED."""
         GPIO.output(self._pin, GPIO.HIGH)
         print("LED is ON")
 
-    def _off(self) -> None:
+    def off(self) -> None:
         """Turn off the LED."""
         GPIO.output(self._pin, GPIO.LOW)
         print("LED is OFF")
 
-    def _is_on(self) -> bool:
+    def is_on(self) -> bool:
         return GPIO.input(self._pin) == GPIO.HIGH
 
-    def _is_off(self) -> bool:
+    def is_off(self) -> bool:
         return GPIO.input(self._pin) == GPIO.LOW
 
     @property
     def state(self) -> bool:
-        return self._is_on()
+        return self.is_on()
 
     @state.setter
     def state(self, value: bool):
         self._modified = False
-        if value and self._is_off():
-            self._on()
+        if value and self.is_off():
+            self.on()
             self._modified = True
-        elif not value and self._is_on():
-            self._off()
+        elif not value and self.is_on():
+            self.off()
             self._modified = True
 
     @property

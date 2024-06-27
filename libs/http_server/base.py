@@ -27,6 +27,11 @@ app.mount(
 led_handler = LEDHandler()
 
 
+@app.on_event("shutdown")
+def shutdown_event():
+    led_handler.cleanup()
+
+
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
     return RedirectResponse(url="/static/favicon/favicon.ico")
