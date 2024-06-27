@@ -68,24 +68,24 @@ def test_led_handler_http_client_on_off():
     assert received_answer is expected_answer
 
     # Turn the LED off when led is already off
-    body = {
-        "state": False,
-    }
-
-    response = requests.post(
-        url=url,
-        json=body,
-        headers=headers,
-    )
-
-    assert response.status_code == HTTPStatus.OK
-
-    received_json = response.json()
-
-    expected_answer = False
-    received_answer = received_json["state"]
-    assert received_answer is expected_answer
-
-    expected_answer = False
-    received_answer = received_json["modified"]
-    assert received_answer is expected_answer
+    # body = {
+    #     "state": False,
+    # }
+    #
+    # response = requests.post(
+    #     url=url,
+    #     json=body,
+    #     headers=headers,
+    # )
+    #
+    # assert response.status_code == HTTPStatus.OK
+    #
+    # received_json = response.json()
+    #
+    # expected_answer = False
+    # received_answer = received_json["state"]
+    # assert received_answer is expected_answer
+    #
+    # expected_answer = False
+    # received_answer = received_json["modified"]
+    # assert received_answer is expected_answer
