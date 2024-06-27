@@ -38,16 +38,23 @@ async def index(
     request: Request,
     page: Optional[Literal["button", "text", "sign"]] = None,
 ):
+    actions = {
+        "button": "/button/",
+        "text": "/text/",
+        "sign": "/sign/",
+    }
     page = page or "button"
     state = led_handler.state
     button_css_class = "huge-button-off" if state else "huge-button-on"
     button_label = "OFF" if state else "ON"
+    action = actions[page]
     context = {
         "request": request,
         "page": page,
         "state": state,
         "button_css_class": button_css_class,
         "button_label": button_label,
+        "action": action,
     }
     return templates.TemplateResponse("index.html", context)
 

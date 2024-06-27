@@ -7,4 +7,7 @@
 {% endblock content %}
 
 {% block js %}
+    {% if page == "button" %}
+        <script src="/static/js/button.js"></script>
+    {% endif %}
 {% endblock js %}
