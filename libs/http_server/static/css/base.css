@@ -1,3 +1,6 @@
+/**
+ * HTML default elements
+ */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,6 +9,9 @@ body {
     background-color: #1e1e1e;
 }
 
+/**
+ * Navbar
+ */
 .navbar {
     list-style-type: none;
     margin: 0;
@@ -36,6 +42,9 @@ body {
     background-color: #555;
 }
 
+/**
+ * Container
+ */
 .container {
     width: 100%;
     max-width: 1140px; /* Adjust max-width as per your design */
@@ -47,11 +56,16 @@ body {
     box-sizing: border-box;
 }
 
+/**
+ * Content
+ */
 .content {
-    margin-top: 20px;
     color: #ffffff;
 }
 
+/**
+ * Button
+ */
 .huge-button {
     display: inline-block;
     padding: 20px 60px;
@@ -92,6 +106,9 @@ body {
     justify-content: center;
 }
 
+/**
+ * Viewports
+ */
 @media (max-width: 600px) {
     .navbar {
         flex-direction: column;
