@@ -40,10 +40,6 @@ get_button().addEventListener("click", function(event) {
         state: new_state
     });
 
-    stateInput.value = newState;
-    event.target.innerText = newState ? "OFF" : "ON";
-    event.target.className = newState ? "off" : "on";
-
     fetch(change_state_url, {
         method: "POST",
         headers: headers,
