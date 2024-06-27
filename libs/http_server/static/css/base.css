@@ -107,6 +107,18 @@ body {
 }
 
 /**
+ * Huge input
+ */
+.huge-input {
+    font-size: 24px; /* Increase the font size */
+    padding: 10px;   /* Add padding for a larger field */
+    width: 100%;     /* Make the input field full width */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+    border: 2px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Optional: add rounded corners */
+}
+
+/**
  * Viewports
  */
 @media (max-width: 600px) {
