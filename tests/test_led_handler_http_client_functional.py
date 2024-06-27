@@ -3,7 +3,6 @@ from http import HTTPStatus
 
 import requests
 
-
 from libs import settings
 
 

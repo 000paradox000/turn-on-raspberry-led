@@ -15,6 +15,9 @@ install-requirements-local:
 run-local:
 	python main.py
 
+test-local:
+	python -m pytest -ra -vv tests/test_llm_openai_functional.py
+
 # =============================================================================
 # PI
 
