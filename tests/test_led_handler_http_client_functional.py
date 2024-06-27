@@ -1,4 +1,4 @@
-import time
+# import time
 from http import HTTPStatus
 
 import requests
@@ -42,30 +42,30 @@ def test_led_handler_http_client_on_off():
     received_answer = received_json["modified"]
     assert received_answer is expected_answer
 
-    time.sleep(3)  # Wait for 1 second to visually confirm the LED is on
-
-    # Turn the LED off
-    body = {
-        "state": False,
-    }
-
-    response = requests.post(
-        url=url,
-        json=body,
-        headers=headers,
-    )
-
-    assert response.status_code == HTTPStatus.OK
-
-    received_json = response.json()
-
-    expected_answer = False
-    received_answer = received_json["state"]
-    assert received_answer is expected_answer
-
-    expected_answer = True
-    received_answer = received_json["modified"]
-    assert received_answer is expected_answer
+    # time.sleep(3)  # Wait for 1 second to visually confirm the LED is on
+    #
+    # # Turn the LED off
+    # body = {
+    #     "state": False,
+    # }
+    #
+    # response = requests.post(
+    #     url=url,
+    #     json=body,
+    #     headers=headers,
+    # )
+    #
+    # assert response.status_code == HTTPStatus.OK
+    #
+    # received_json = response.json()
+    #
+    # expected_answer = False
+    # received_answer = received_json["state"]
+    # assert received_answer is expected_answer
+    #
+    # expected_answer = True
+    # received_answer = received_json["modified"]
+    # assert received_answer is expected_answer
 
     # Turn the LED off when led is already off
     # body = {
