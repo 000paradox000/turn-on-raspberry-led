@@ -2,8 +2,17 @@ import time
 from http import HTTPStatus
 
 import requests
+import pytest
 
 from libs import settings
+from libs import utilities
+
+# Ensure this test file is only run on a Raspberry Pi
+if not utilities.is_raspberry():
+    pytest.skip(
+        "Skipping GPIO tests on non-Raspberry Pi platforms",
+        allow_module_level=True,
+    )
 
 
 def test_led_handler_http_client_on_off():
